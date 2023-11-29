@@ -13,7 +13,47 @@
 
 # Flow chart
 
+![txt](./Flowchart.jpg)
 
 # 참고한 오픈소스 프로젝트
 
 [facial_rec_live_codeSite](https://github.com/x4nth055/pythoncode-tutorials/blob/64cd00815fcf3ee91a5b28b8bf427129d0aeea8b/machine-learning/facial-recognition-system/facial_rec_live_camera.py, "Move to facial_rec_live_code's Site")
+
+```
+source code
+...
+# Initialize empty lists to store images and people's names.
+known_faces = []
+face_labels = []
+
+# Get a list of all images in the TrainingImages directory.
+image_files = os.listdir("TrainingImages")
+
+# Loop through the images in the directory.
+for image_name in image_files:
+    # Read each image and add it to the known_faces list.
+    current_image = cv2.imread(f'TrainingImages/{image_name}')
+    known_faces.append(current_image)
+
+    # Extract the person's name by removing the file extension and add it to the face_labels list.
+    face_labels.append(os.path.splitext(image_name)[0])
+...
+```
+
+
+```
+...
+# Function to start the Facial recognition program.
+def start_recognition_program():
+    # Open a webcam for capturing video. If you are using your computer's webcam, change 1 to 0.
+    # If using an external webcam, leave it as 1.
+    video_capture = cv2.VideoCapture(1)
+
+    while True:
+        # Read a frame from the webcam.
+        frame = video_capture.read()
+
+        # Check if the frame is not None (indicating a successful frame capture).
+        if frame is not None:
+...
+```
