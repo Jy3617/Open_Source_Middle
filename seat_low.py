@@ -2,12 +2,12 @@ seat = ["○", "○", "○", "○", "○", "○", "○", "○"]
 Number = []
 total = 0
 while True:
-    answer = input("좌석을 예약하시겠습니까?")
+    answer = input("좌석을 예약하시겠습니까? (Yes/yes or No/no)")
 
     if answer == "YES" or answer == "yes":
         i = 1
-        print("영화 가격: 9000원")
-        card = int(input("할인카드가 있으면 1, 없으면 0을 입력하세요"))
+        print("좌석 가격: 3000원")
+        card = int(input("회원권이 있으면 1, 없으면 0을 입력하세요"))
         print("예약할 인원수를 입력하세요")
         person = int(input(""))
         while (i <= person):
@@ -24,16 +24,16 @@ while True:
                     Number.append(select)
                     i += 1
                     if card:
-                        total += 9000 * 0.9
+                        total +=3000 * 0.9
                     else:
-                        total += 9000
+                        total += 3000
             else:
                 print("1-8번 좌석 중 선택하세요!!")
         print("예약한 좌석", Number)
-        print("총 금액:", int(total))
+        print("총 금액:", int(total),"\n")
     elif answer == "NO" or answer == "no":
-        print("예약을 취소합니다.")
+        print("예약을 취소합니다.\n")
         break
     else:
-        print("다시 입력하세요")
+        print("다시 입력하세요.\n")
         continue
